@@ -14,7 +14,7 @@ const NodesPanel = () => {
   return (
     <div className="panel-container">
       <div className="panel-header border-b border-slate-300 h-10 px-4 flex items-center bg-slate-200">
-        <h3 className="m-0 font-bold">Nodes Panel</h3>
+        <h3 className="m-0 font-bold text-black">Nodes Panel</h3>
       </div>
       <div className="nodes-container flex flex-wrap p-4 gap-2">
         <Card

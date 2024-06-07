@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { Node, useNodesState, useStore } from "reactflow";
 import cloneDeep from "lodash/cloneDeep";
 import { useChatbotFlowContext } from "@/context/ChatbotFlowContext";
+import TextArea from "antd/es/input/TextArea";
 
 interface SettingsPanelProps {
   node: Node;
@@ -18,7 +19,7 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ node }) => {
     setValue(data?.message);
   }, [node])
   
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setValue(e.target.value);
 
     if (setNodes === undefined) return;
@@ -38,13 +39,13 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({ node }) => {
   return (
     <div className="panel-container">
       <div className="panel-header border-b border-slate-300 h-10 px-4 flex items-center bg-slate-200">
-        <h3 className="m-0 font-bold">Settings Panel</h3>
+        <h3 className="m-0 font-bold text-black">Settings Panel</h3>
       </div>
       <div className="settings-container flex flex-wrap p-4 gap-2">
-        <label>
+        <label className="text-black">
           Message
         </label>
-        <Input onChange={handleChange} value={value} key="message" type="text" />
+        <TextArea onChange={handleChange} value={value} key="message" rows={4} />
       </div>
     </div>
   );
